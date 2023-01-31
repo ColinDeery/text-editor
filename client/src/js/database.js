@@ -26,9 +26,9 @@ export const getDb = async () => {
   const textDb = await openDB('jate', 1);
   const tx = textDb.transaction('jate', 'readonly');
   const store = tx.objectStore('jate');
-  const request = store.get({ id: 1 });
+  const request = store.get(1);
   const result = await request;
-  return result;
+  return result?.value;
 
 };
 
